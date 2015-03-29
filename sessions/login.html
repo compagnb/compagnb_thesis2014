@@ -1,0 +1,116 @@
+<?php
+include_once 'includes/db_connect.php';
+include_once 'includes/functions.php';
+
+sec_session_start();
+
+if (login_check($mysqli) == true) {
+    $logged = 'in';
+} else {
+    $logged = 'out';
+}
+?>
+
+<!DOCTYPE HTML>
+<!--
+   Barbara Compagnoni
+   sessions: a pocket therapist for anxiety
+   Adv Web & Thesis
+   Spring 2015
+
+   with use of code snippets from html5up.net
+-->
+<html>
+   <head>
+      <title>sessions : login</title>
+      <meta charset="utf-8">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <meta name="description" content="" />
+      <meta name="keywords" content="" />
+      <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/jquery.scrolly.min.js"></script>
+      <script src="js/jquery.dropotron.min.js"></script>
+      <script src="js/jquery.scrollex.min.js"></script>
+      <script src="js/skel.min.js"></script>
+      <script src="js/skel-layers.min.js"></script>
+      <script src="js/init.js"></script>
+      <script type="text/JavaScript" src="js/sha512.js"></script>
+      <script type="text/JavaScript" src="js/forms.js"></script>
+      <noscript>
+       <link rel="stylesheet" href="css/skel.css" />
+         <link rel="stylesheet" href="css/style.css" />
+         <link rel="stylesheet" href="css/style-xlarge.css" />
+      </noscript>
+      <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+      <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+   </head>
+   <body class="landing">
+      <!-- Header -->
+         <header id="header" class="skel-layers-fixed">
+            <h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="sessions logo" /></a></h1>
+            <nav id="nav">
+               <ul>
+                  <li><a href="#">help</a></li>
+                  <li><a href="#">get started</a>
+                  <li><a href="#">set up</a></li>
+                  <li><a href="#">sign up</a></li>
+               </ul>
+            </nav>
+         </header>
+
+      <!-- Banner -->
+         <div id="banner">
+            <div class="fblogincontent">
+               <div class="fbtxt">
+               <p>use facebook connect to securely login.
+               <br>it's one less password to remember and we'll never automatically post to your wall.</p>
+               </div>
+               <div class="fbimage">
+               <a href="#"><img class="fbimage" src="images/facebookconnect.png" alt="fbconnect image" /></a>
+               </div>
+               <div class="fbor">
+               <span> or </span>
+               </div>
+               <br>
+               <div class="seclogincontent">
+                  <div class="registertxt">
+                     <p>don't have an account?
+                     <br>
+                     get started <a href="#">here</a>
+                     </p>
+                     <p>forgot your password?
+                     <br>recover it <a href="#">here</a>
+                     </p>
+                  </div>
+                  <div class= "emailbox">
+                     <form action="includes/process_login.php" method="post" name="login_form">
+                     <input type="text" name="email" value="email"/>
+
+                     <input type="password" name="password" id="password" value="password"/>
+                  </div>
+                  <div class="submit">
+                     <input class="button" type="button" value="login" onclick="formhash(this.form, this.form.password);" />
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+    <!-- Footer -->
+         <footer id="footer">
+            <ul class="icons">
+               <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+               <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+               <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+               <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+               <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+               <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+               <li>&copy; 2015 barbara compagnoni. All rights reserved.</li><li>Design: <a href="#">insert portfolio link here</a></li>
+            </ul>
+         </footer>
+
+   </body>
+</html>
