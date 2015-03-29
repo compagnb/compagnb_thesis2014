@@ -1,0 +1,11 @@
+1
+Page Protection Script.
+
+One of the most common problems with authentication systems is the developer forgetting to check if the user is logged in. It is very important you use the code below on every protected page to check that the user is logged in. Make sure you use this function to check if the user is logged in.
+
+// Include database connection and functions here.  See 3.1.
+sec_session_start();
+if(login_check($mysqli) == true) {
+        // Add your protected page content here!
+} else {
+        echo 'You are not authorized to
